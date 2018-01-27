@@ -9,7 +9,6 @@ const {
 const handleFailable = failable => {
   const { duration } = meta(failable);
   const { url, ok, status } = payload(failable);
-  console.log({ url, ok, status, duration });
   return [
     {
       measurement: "response_time",
