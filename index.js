@@ -1,8 +1,10 @@
 const check = require("./src/check");
+const config = require(process.env.UP_CONFIG);
+const assert = require("assert");
 
-const tests = [
-  ["http://google.com/zzzzzzzzzzzzzzzzz", 1000],
-  ["http://walmart.com/zzzzzzzzzzzzz", 1000]
-];
+assert(
+  Array.isArray(config),
+  "Config must be an array of tuples [url, interval]"
+);
 
-tests.map(check);
+config.map(check);
