@@ -7,14 +7,14 @@ const {
 } = require("@pheasantplucker/failables");
 
 const handleFailable = failable => {
-  const { time } = meta(failable);
+  const { duration } = meta(failable);
   const { url, ok, status } = payload(failable);
-
+  console.log({ url, ok, status, duration });
   return [
     {
       measurement: "response_time",
       tags: { url, ok, status },
-      fields: { time }
+      fields: { duration }
     },
     {
       measurement: "up",
@@ -30,5 +30,5 @@ const handleFailable = failable => {
 };
 
 module.exports = function*(failable) {
-  return yield writeCmd(handleFailable(failable));
+  yield writeCmd(handleFailable(failable));
 };

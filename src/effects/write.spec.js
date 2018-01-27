@@ -12,16 +12,16 @@ test(
       status: 200,
       ok: true
     };
-    const time = 100;
+    const duration = 100;
     const failable = success(response, {
-      time
+      duration
     });
 
     const points = [
       {
         measurement: "response_time",
         tags: { url, ok: response.ok, status: response.status },
-        fields: { time }
+        fields: { duration }
       },
       {
         measurement: "up",
@@ -50,16 +50,16 @@ test(
       status: 500,
       ok: false
     };
-    const time = 100;
+    const duration = 100;
     const failable = failure(response, {
-      time
+      duration
     });
 
     const points = [
       {
         measurement: "response_time",
         tags: { url, ok: response.ok, status: response.status },
-        fields: { time }
+        fields: { duration }
       },
       {
         measurement: "up",

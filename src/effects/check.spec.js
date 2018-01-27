@@ -1,6 +1,6 @@
 const { testFn, args } = require("effects-as-data/test");
 const fn = require("./check");
-const nowCmd = require("./commands/now");
+const { now: nowCmd } = require("effects-as-data-universal").cmds;
 const httpGetCmd = require("./commands/httpGet");
 const { success, failure } = require("@pheasantplucker/failables");
 
@@ -14,7 +14,7 @@ test(
     const start = 150;
     const end = 160;
     const result = success(response, {
-      time: end - start
+      duration: end - start
     });
 
     return args(url)
@@ -36,7 +36,7 @@ test(
     const end = 160;
     const error = new Error("problem");
     const result = failure(error, {
-      time: end - start
+      duration: end - start
     });
 
     return args(url)
