@@ -1,11 +1,10 @@
 {
   "name": "uptime-influx",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":
-      "INFLUX_DB=uptime INFLUX_HOST=localhost:8086 UP_CONFIG=./config.json node index.js",
+    "start": "INFLUX_DB=uptime INFLUX_HOST=localhost:8086 UP_CONFIG=./config.json node index.js",
     "test": "jest --watch",
     "prettier": "prettier --write 'src/**/*.js'"
   },
